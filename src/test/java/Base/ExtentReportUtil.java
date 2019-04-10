@@ -22,7 +22,7 @@ public class ExtentReportUtil extends BaseUtil {
 
     public void ExtentReport() {
         //First is to create Extent Reports
-        extent = new ExtentReports();
+        var extent = new ExtentReports();
 
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
         htmlReporter.config().setTheme(Theme.DARK);
