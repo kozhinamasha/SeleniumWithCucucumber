@@ -22,9 +22,10 @@ public class ExtentReportUtil extends BaseUtil {
 
     public void ExtentReport() {
         //First is to create Extent Reports
-        extent = new ExtentReports();
+        //extent = new ExtentReports();
 
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
+		extent = new ExtentReports();
         htmlReporter.config().setTheme(Theme.DARK);
         htmlReporter.config().setDocumentTitle("Test report for Selenium Basic");
         htmlReporter.config().setEncoding("utf-8");
@@ -36,7 +37,7 @@ public class ExtentReportUtil extends BaseUtil {
 
     public void ExtentReportScreenshot() throws IOException {
 
-        var scr = ((TakesScreenshot)Driver).getScreenshotAs(OutputType.FILE);
+        File scr = ((TakesScreenshot)Driver).getScreenshotAs(OutputType.FILE);
         Files.copy(scr.toPath(), new File(reportLocation + "screenshot.png").toPath());
         scenarioDef.fail("details").addScreenCaptureFromPath(reportLocation + "screenshot.png");
     }
